@@ -1,6 +1,6 @@
 // src/components/MainPage.js
 import React, { useState } from 'react';
-// import './MainPage.css'; // Import the CSS file
+import './styles/MainPage.css';
 
 function MainPage({ onLogout }) {
   const [Names, setNames] = useState([]); // State to store the Names

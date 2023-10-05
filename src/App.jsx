@@ -1,6 +1,6 @@
 // src/App.js
 import React, { useState } from 'react';
-import './App.css';
+import './styles/App.css';
 import LoginPage from './components/LoginPage';
 import MainPage from './components/MainPage';
 

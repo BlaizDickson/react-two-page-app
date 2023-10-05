@@ -1,0 +1,51 @@
+/* src/styles/MainPage.css */
+/* Styles for the main page */
+.main-container {
+    text-align: center;
+    margin-top: 100px;
+  }
+  
+  .main-container h2 {
+    color: #333;
+  }
+  
+  .logout-button {
+    margin-top: 16px;
+    padding: 8px 16px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .logout-button:hover {
+    background-color: #d60000;
+  }
+  
+  /* Additional styles for the main page */
+  /* Input and list styles */
+  input[type="text"] {
+    padding: 8px;
+    margin-right: 8px;
+    font-size: 16px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* Random item button */
+  .random-item-button {
+    margin-top: 16px;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .random-item-button:hover {
+    background-color: #0056b3;
+  }
+  
