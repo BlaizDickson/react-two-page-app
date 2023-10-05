@@ -1,0 +1,27 @@
+/* src/styles.css */
+/* Style for the login page */
+.login-container {
+    text-align: center;
+    margin-top: 100px;
+  }
+  
+  .login-input {
+    margin: 8px;
+    padding: 8px;
+  }
+  
+  /* Style for the main page */
+  .main-container {
+    text-align: center;
+    margin-top: 100px;
+  }
+  
+  .logout-button {
+    margin-top: 16px;
+    padding: 8px 16px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
