@@ -1,70 +1,84 @@
 // src/components/MainPage.js
-import React, { useState } from 'react';
-import './styles/MainPage.css';
+import React, { useState, useEffect } from 'react';
+import './MainPage.css';
 
 function MainPage({ onLogout }) {
-  const [Names, setNames] = useState([]); // State to store the Names
-  const [inputName, setInputName] = useState(''); // State to capture user input
-  const [selectedName, setSelectedName] = useState(null); // State to store the randomly selected Name
+  const [items, setItems] = useState([]);
+  const [inputItem, setInputItem] = useState('');
+  const [selectedItems, setSelectedItems] = useState([]);
+  const [selectedItem, setSelectedItem] = useState(null);
 
-  // Function to add an Name to the array
-  const addName = () => {
-    if (inputName.trim() === '') {
+  useEffect(() => {
+    // Initialize items when the component mounts
+    setItems([]);
+  }, []);
+
+  const addItem = () => {
+    if (inputItem.trim() === '') {
       return;
     }
 
-    if (Names.length < 6) {
-      setNames([...Names, inputName]);
-      setInputName('');
-    } else {
-      alert('You can only add up to 6 Names.');
-    }
+    setItems([...items, inputItem]);
+    setInputItem('');
   };
 
-  // Function to select a random Name from the array
-  const selectRandomName = () => {
-    if (Names.length === 0) {
-      alert('No Names to select from.');
+  const selectRandomItem = () => {
+    if (items.length === 0) {
+      alert('No names to select from.');
       return;
     }
 
-    const randomIndex = Math.floor(Math.random() * Names.length);
-    setSelectedName(Names[randomIndex]);
+    const randomIndex = Math.floor(Math.random() * items.length);
+    const itemToSelect = items[randomIndex];
+
+    setSelectedItem(itemToSelect);
+
+    // Update selected items and remove the selected item from the original list
+    setSelectedItems([...selectedItems, itemToSelect]);
+    setItems(items.filter((item) => item !== itemToSelect));
   };
 
   return (
-    <div className="main-container"> {/* Apply the CSS class */}
+    <div className="main-container">
       <h2>Main Page</h2>
-      <button className="logout-button" onClick={onLogout}>Logout</button> {/* Apply the CSS class */}
-      
-      {/* Input for adding Names */}
+      <button className="logout-button" onClick={onLogout}>
+        Logout
+      </button>
+
       <div>
         <input
           type="text"
-          placeholder="Enter a Name"
-          value={inputName}
-          onChange={(e) => setInputName(e.target.value)}
+          placeholder="Enter a name"
+          value={inputItem}
+          onChange={(e) => setInputItem(e.target.value)}
         />
-        <button onClick={addName}>Add Name</button>
+        <button onClick={addItem}>Add a name</button>
       </div>
-      
-      {/* Display the list of Names */}
+
       <div>
         <h3>Names:</h3>
         <ul>
-          {Names.map((Name, index) => (
-            <li key={index}>{Name}</li>
+          {items.map((item, index) => (
+            <li key={index}>{item}</li>
           ))}
         </ul>
-        <p>Total Names: {Names.length}</p>
+        <p>Total Names: {items.length}</p>
       </div>
-      
-      {/* Button to randomly select an Name */}
+
       <div>
-        <button onClick={selectRandomName}>Select Random Name</button>
-        {selectedName && (
-          <p>Selected Name: {selectedName}</p>
-        )}
+        <button className="random-item-button" onClick={selectRandomItem}>
+          Select Random Name
+        </button>
+        {selectedItem && <p>Selected Name: {selectedItem}</p>}
+      </div>
+
+      <div>
+        <h3>Selected Names:</h3>
+        <ul>
+          {selectedItems.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );

@@ -1,13 +1,13 @@
 // src/components/LoginPage.js
 import React, { useState } from 'react';
+import './LoginPage.css';
 
 function LoginPage({ onLogin }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Perform authentication here, e.g., call an API
-    // For simplicity, we'll just check for a hardcoded username and password.
+    // Authentication logic here
     if (username === 'admin' && password === 'password') {
       onLogin();
     } else {
@@ -16,7 +16,7 @@ function LoginPage({ onLogin }) {
   };
 
   return (
-    <div>
+    <div className="login-container">
       <h2>Login Page</h2>
       <input
         type="text"

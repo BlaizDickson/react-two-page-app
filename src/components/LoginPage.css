@@ -1,0 +1,34 @@
+/* src/styles/LoginPage.css */
+/* Styles for the login page */
+ .login-container {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.login-container h2 {
+  color: #333;
+}
+
+.login-input {
+  margin: 8px;
+  padding: 8px;
+  width: 100%;
+}
+
+.login-input[type="text"],
+.login-input[type="password"] {
+  font-size: 16px;
+}
+
+.login-container button {
+  margin-top: 16px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background-color: #0056b3;
+} 
